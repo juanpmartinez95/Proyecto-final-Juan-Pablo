@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Sobre mí
+{% endblock titulo %}
+
+{% block contenido %}
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sección del carrusel -->
+            <div class="col-lg-6">
+                <div id="carouselExample" class="carousel slide shadow-lg rounded" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{% static 'core/img/yo.png' %}" class="d-block w-100 rounded" alt="Fabiana y Juan Pablo">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'core/img/miga.jpeg' %}" class="d-block w-100 rounded" alt="Mascota Miga">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-dark p-3 rounded-circle" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-dark p-3 rounded-circle" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sección de texto -->
+            <div class="col-lg-6 d-flex align-items-center">
+                <div class="p-4" style="text-align: justify;">
+                    <h2 class="mb-4" style="color: #2c3e50;">¡Hola! Soy Juan Pablo Martinez</h2>
+                    <p>Somos dos estudiantes de Coderhouse apasionados por los animales y comprometidos con mejorar la vida de aquellos que más lo necesitan. 🐾</p>
+                    <p>Este proyecto de adopción busca conectar a nuestros amigos de cuatro patas con personas amorosas dispuestas a brindarles un hogar lleno de cariño. ¡Únete a nosotros en esta misión tan importante!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}

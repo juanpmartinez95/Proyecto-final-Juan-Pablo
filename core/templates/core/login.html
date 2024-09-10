@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    Iniciar Sesión
+{% endblock titulo %}
+
+{% block contenido %}
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%; border-radius: 10px;">
+            <h2 class="text-center mb-4" style="color: #2c3e50;">Iniciar Sesión</h2>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                
+                <!-- Formulario personalizado -->
+                <div class="form-group mb-3">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                    {{ form.password.errors }}
+                </div>
+
+                <input type="hidden" name="next" value="{% url 'core:home' %}">
+
+                <!-- Botón de inicio de sesión -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+                </div>
+
+                <!-- Mostrar errores -->
+                {% if messages %}
+                    <p class="text-danger text-center mt-3">{{ messages.messages.error }}</p>
+                {% endif %}
+
+                <!-- Botón de cancelar -->
+                <div class="text-center mt-3">
+                    <a href="{% url 'core:home' %}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock contenido %}

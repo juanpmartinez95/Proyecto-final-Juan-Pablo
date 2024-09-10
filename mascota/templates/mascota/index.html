@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+    App Mascotas
+{% endblock titulo %}
+{% block contenido %}
+<div class="container my-5">
+    <h3 class="pb-3 border-bottom">Categoría de mascotas</h3>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+        <a class="btn btn-primary me-md-2" href="{% url 'mascota:mascotacategoria_create' %}" role="button">Crear Categorías de Mascotas</a>
+        <a class="btn btn-outline-primary" href="{% url 'mascota:mascotacategoria_list' %}" role="button">Listar Categorías de Mascotas</a>
+    </div>
+
+    <h3 class="pb-3 border-bottom">Mascotas</h3>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+        <a class="btn btn-success me-md-2" href="{% url 'mascota:mascota_create' %}" role="button">Adoptar mascota:/a>
+        <a class="btn btn-outline-success" href="{% url 'mascota:mascota_list' %}" role="button">Listar Mascotas</a>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+        <a class="btn btn-secondary" href="{% url 'core:home' %}" role="button">Volver a Inicio</a>
+    </div>
+</div>
+
+{% endblock contenido %}

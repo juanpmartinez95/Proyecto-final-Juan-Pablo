@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    Mascotas: Borrar una Categoría de mascotas
+{% endblock titulo %}
+
+{% block contenido %}
+    
+    <p class="fs-5 fst-italic">¿Confirmas eliminar "{{ object.nombre }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+    </form>
+    <div class="fs-3 pb-4">
+        <a href="{% url 'mascota:home' %}">Volver al inicio de mascota</a>
+    </div>
+
+{% endblock contenido %}

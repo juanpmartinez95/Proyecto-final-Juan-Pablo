@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    Editar Perfil
+{% endblock titulo %}
+
+{% block contenido %}
+    <div class="container mt-4">
+        <h1 class="text-center mb-4" style="color: #2c3e50;">Editar Perfil</h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="card shadow-lg p-4" style="border-radius: 10px;">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="submit" class="btn btn-primary">Aplicar cambios</button>
+                            <a href="{% url 'core:home' %}" class="btn btn-secondary">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}

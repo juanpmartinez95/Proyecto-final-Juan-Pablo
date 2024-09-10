@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    Borrar Mascota
+{% endblock titulo %}
+
+{% block contenido %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-danger text-white text-center">
+                    <h4>Confirmación de Eliminación</h4>
+                </div>
+                <div class="card-body text-center">
+                    <p class="fs-5 fst-italic">
+                        ¿Confirmas eliminar la mascota "{{ mascota.nombre }}"?
+                    </p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-lg">Confirmar Eliminación</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'mascota:lista_mascotas' %}" class="btn btn-secondary">Volver al Inicio de Mascotas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

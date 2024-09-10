@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block titulo %}
+{% include 'core/components/titulo1.html' with titulo="Tu peludito a unos clicks de distancia" %}
+{% endblock titulo %}
+{% block contenido %}
+
+
+<header class="bg-image" style="background-image: url('{% static "core/img/dog.png" %}');">
+    <div class="text-overlay">
+        <h1 class="display-4">Tu peludito a unos clicks de distancia</h1>
+    </div>
+</header>
+
+<div class="container my-5">
+    <div class="row">
+
+        <div class="col-md-6">
+            <img src="{% static 'core/img/animal1.gif' %}" class="img-fluid" alt="Adopta una mascota">
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center">
+            <h2>¿Quieres adoptar una mascota?</h2>
+            <p>Regístrate para encontrar a tu nuevo compañero/a.</p>
+            <a class="btn btn-primary {% if request.path == "/register/" %} active {% endif %}"  href="{% url 'core:register' %}">Registrarse</a>
+        </div>
+    </div>
+
+    <div class="row my-5">
+
+        <div class="col-md-6 order-md-2">
+            <img src="{% static 'core/img/animal2.gif' %}" class="img-fluid" alt="Proceso de adopción">
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center order-md-1">
+          <h2>Adopta con responsabilidad</h2>
+          <p>Encuentra a tu nuevo amigo peludo a través de nuestro proceso de adopción fácil y transparente.</p>
+          <a href="{% url 'mascota:lista_mascotas' %}" class="btn btn-adopt">Adoptar</a>
+      </div>
+    </div>
+</div>
+
+{% endblock contenido %}

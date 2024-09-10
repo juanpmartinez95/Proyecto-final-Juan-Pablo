@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    {{ mascota.nombre }}
+{% endblock titulo %}
+
+{% block contenido %}
+    <div class="container mt-4">
+        <h1 class="text-center mb-4" style="color: #2c3e50;">Detalles de {{ mascota.nombre }}</h1>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card shadow-lg p-4">
+                    <h2 class="h4">Información de la Mascota</h2>
+                    <dl class="row">
+                        <dt class="col-sm-4">Nombre:</dt>
+                        <dd class="col-sm-8">{{ mascota.nombre }}</dd>
+                        <dt class="col-sm-4">Tamaño:</dt>
+                        <dd class="col-sm-8">{{ mascota.tamano }}</dd>
+                        <dt class="col-sm-4">Descripción:</dt>
+                        <dd class="col-sm-8">{{ mascota.descripcion }}</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="card shadow-lg p-4">
+                    <h2 class="h4">Imagen de {{ mascota.nombre }}</h2>
+                    <!-- Mostrar la imagen de la mascota -->
+                    {% if mascota.foto %}
+                        <img src="{{ mascota.foto.url }}" class="img-fluid" alt="{{ mascota.nombre }}">
+                    {% else %}
+                        <p>No hay imagen disponible.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <section class="d-flex justify-content-between mt-4">
+            <a href="{% url 'adopcion:adopcion_create' %}" class="btn btn-primary">Adoptar a {{ mascota.nombre }}</a>
+            <a href="{% url 'mascota:lista_mascotas' %}" class="btn btn-secondary">Volver</a>
+        </section>
+    </div>
+{% endblock contenido %}

@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+    Mascotas: Lista de categoría de mascotas
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <div class="py-lg-4 ">
+        <form action="{% url 'mascota:mascotacategoria_list' %}" method="get">
+            <input type="text" name="consulta" placeholder="Buscar...">
+        </form>
+    </div>
+    <ul>
+        {% comment  %}
+        {% for mascota in mascotas %}
+        {% endcomment %}
+
+        {% for mascota in object_list %}
+            <li>{{ mascota.nombre }}
+                <a href="{% url 'mascota:mascotacategoria_detail' mascota.id %}">Detalle</a>
+                <a href="{% url 'mascota:mascotacategoria_update' mascota.id %}">Cambiar</a>
+                <a href="{% url 'mascota:mascotacategoria_delete' mascota.id %}">Borrar</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="fs-3 pb-4">
+        <a href="{% url 'mascota:home' %}">Volver al inicio de mascota</a>
+    </div>
+
+{% endblock contenido %}
